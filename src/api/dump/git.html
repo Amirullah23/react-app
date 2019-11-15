@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input type="text" id="myText" value="type your id">
+
+    <button type="button" onclick="x"></button>
+
+
+
+    <h1 id="myName"></h1>
+    <ul id="authors"></ul>
+
+    <div id="div1">
+
+        <img id="myImg" src="compman.gif" width="107" height="98">
+        <!-- <img src="https://avatars0.githubusercontent.com/u/6932768?v=4" alt=""> -->
+
+    </div>
+
+
+
+    <script>
+        // function myFunction() {
+        var x = document.getElementById("myText").value;
+        let a = x
+            // return a
+
+
+        // }
+        // console.log(a)
+        // console.log("tes")
+
+        // fetch('https://api.github.com/users/miftahmfaris')
+        //     .then((resp) => resp.json())
+        //     .then(function(data) {
+        //         let authors = data.results;
+        //         console.log(authors)
+        //     })
+        // document.getElementById('authors')
+        // let p = document.createComment('p')
+        // p.innerHTML = "amir"
+        // li.appendChild(p)
+
+        // function createNode(element) {
+        //     return document.createElement(element);
+        // }
+
+        // function append(parent, el) {
+        //     return parent.appendChild(el);
+        // }
+
+        // let li = createNode('li'),
+        //     p = createNode('p')
+
+        // p.innerHTML = 'parap baru'
+
+        // append(li, p)
+
+
+
+
+
+
+
+
+        // fetch('https://api.github.com/users/Amirullah23')
+        fetch(a)
+
+
+
+        .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                let get = data;
+                console.log(get.name)
+                console.log(get.login)
+                console.log(get.avatar_url)
+
+
+
+
+                document.getElementById("myName").innerHTML = get.name;
+                document.getElementById("myImg").src = get.avatar_url;
+
+                var para = document.createElement("h3");
+                var node = document.createTextNode(get.name);
+                para.appendChild(node);
+
+                var para1 = document.createElement("h3");
+                var node1 = document.createTextNode(get.avatar_url);
+                para1.appendChild(node1);
+
+                var element = document.getElementById("div1");
+                element.appendChild(para);
+                element.appendChild(para1);
+
+
+
+
+                // Work with JSON data here
+
+
+
+
+                console.log(get)
+            })
+            .catch(err => {
+
+            })
+    </script>
+
+
+</body>
+
+</html>

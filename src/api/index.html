@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Data from Api</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+        
+        #center img {
+            width: 400px;
+            height: auto;
+        }
+        
+        #myName:hover {
+            color: brown;
+        }
+        
+        h4:hover {
+            font-size: large;
+        }
+        
+        #myImg:hover {
+            width: 500px;
+        }
+        
+        #myText {
+            width: 90%;
+            text-align: center;
+            margin: auto;
+        }
+        
+        #div1 {
+            text-align: center;
+            width: 65%;
+        }
+        
+        #reposss {
+            float: right;
+            text-align: center;
+            width: 35%;
+        }
+        
+        #reposss li {
+            font-size: smaller;
+            float: right;
+            list-style: none;
+            margin-right: 10px;
+            margin-left: 10px;
+            text-align: center;
+        }
+        
+        #reposss img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .content {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        function reload() {
+            location.reload()
+        }
+    </script>
+</head>
+
+<body>
+
+    <section id="center">
+        <form action="followers.html" method="post">
+            <label for="text">Type Your username GitHub</label>
+            <input type="text" id="myText" value="Amirullah23">
+            <button type="button" onclick="reload()">Show your Profile</button>
+        </form>
+        <h1 id="myName"></h1>
+        <img id="myImg" src="">
+
+    </section>
+    <main class="content">
+        <div id="div1">
+
+            <h1>Your Profile</h1>
+            <h4>ID : <span id="yourId"></span></h4>
+            <h4>Name : <span id="yourName"></span></h4>
+            <h4>MY Followers : <a href="followers.html"><span id="followers"></span></a></h4>
+            <h4>MY Following : <a href="following.html"><span id="following"></span></a></h4>
+            <h4>MY Repo : <span id="public_repos"></span></h4>
+            <h4>Link GitHub : <a id="link" href="">Clik for open your Account</a></h4>
+        </div>
+        <section id="reposss">
+            <h1>YourRepo</h1>
+        </section>
+    </main>
+
+
+
+    <script>
+        function click() {
+            var x = document.getElementById("myText").value;
+            return x
+
+        }
+        // console.log(click())
+        let abc = click()
+
+        let a = fetch(`https://api.github.com/users/${abc}`)
+
+        .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                let get = data;
+                // console.log(followers_url)
+                // console.log(get.login)
+                // console.log(get.avatar_url)
+
+                //your name
+                document.getElementById("myName").innerHTML = get.name;
+                //your pict
+                document.getElementById("myImg").src = get.avatar_url;
+
+                document.getElementById("yourName").innerHTML = get.name;
+                document.getElementById("yourId").innerHTML = get.id;
+                document.getElementById("followers").innerHTML = get.followers;
+                document.getElementById("following").innerHTML = get.following;
+                document.getElementById("public_repos").innerHTML = get.public_repos;
+                document.getElementById("link").href = get.html_url;
+
+
+
+
+                // var para = document.createElement("h3");
+                // var node = document.createTextNode(get.name);
+                // para.appendChild(node);
+
+                // var para1 = document.createElement("h3");
+                // var node1 = document.createTextNode(get.avatar_url);
+                // para1.appendChild(node1);
+                //save
+                // var element = document.getElementById("div1");
+                // element.appendChild(para);
+                // element.appendChild(para1);
+
+                console.log(get)
+            })
+
+        function yourRepo() {
+            fetch(`https://api.github.com/users/${abc}/repos`)
+                .then((Response) => Response.json())
+                .then(function(data) {
+                    let repos = data
+                    let num = 1
+
+                    return repos.map(function(reposs) {
+                        console.log(reposs.name)
+                        let div = document.createElement('li'),
+                            nameRepo = document.createElement('p'),
+                            txtName = document.createTextNode(reposs.name),
+                            pictRepo = document.createElement('img')
+                        pictRepo.src = `https://picsum.photos/id/${num++}/200/300`
+                        nameRepo.appendChild(txtName)
+                        let secRepo = document.getElementById('reposss')
+                        secRepo.appendChild(div)
+                        div.appendChild(nameRepo)
+                        div.appendChild(pictRepo)
+
+
+
+
+
+                    })
+                })
+        }
+        yourRepo()
+            .catch(err => {
+
+            })
+    </script>
+    <script src="index.js"></script>
+
+
+    <!-- <script type="module" src="following.js"></script> -->
+
+
+</body>
+
+</html>

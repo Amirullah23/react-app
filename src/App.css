@@ -1,13 +1,19 @@
-.App {
+/* .App {
   text-align: center;
+
 }
 
 .App-logo {
-  height: 40vmin;
+  margin-top: 20px;
+  width: 300px;
+  border-radius: 50%;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url("assets/guthub.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: gray;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,4 +25,32 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+#bio {
+  width: 400px;
+}
+#bio p{
+  text-align: justify;
+}
+ */
+
+ .body {
+   min-height: 100vh;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   
+
+ }
+.maketxt {
+  margin-right: 20px ;
+  background: blue;
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
