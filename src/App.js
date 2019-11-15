@@ -1,30 +1,78 @@
-import React from 'react'
-import Another from './MakeText'
-
-function App(){
-
-return (
-  <div className="body">
-
-  <Another />
-  <Another name="amir"/>
-  <Another name="amir2"/>
-  <Another name="amir3"/>
-  <Another name="amir4"/>
-  <Another name="amir5"/>
-  <Another name="amir6"/>
-  <Another name="amir7"/>
+// import React, { Component } from 'react'
+// import Table from './component/Table'
+// import Form from './component/Form'
 
 
+// export default class App extends Component {
+//   state = {
+//     employee : [{
+//       name : 'amir',
+//       job : 'fullstack'
+//     },
+//     {
+//       name : 'amir2',
+//       job : 'fullstack'
+//     },
+//     {
+//       name : 'amir2',
+//       job : 'fullstack'
+//     }]
+//   }
+//   delEmploye = index => {
+//     const {employee} = this.state
+
+//     this.setState({
+//       employee : employee.filter((person, i) => {
+//         return i !== index
+//       })
+//     })
+  
+//     }
+//     handleSubmit = employee => {
+//       this.setState({employee : [...this.state.employee, employee]})
+//   }
+//   render() {
+//    const {employee} = this.state
+//     return (
+//       <div>
+//         <Table employeeData = {employee} delEmploye={this.delEmploye}/>
+//         <Form handleSubmit={this.handleSubmit}/>
+//       </div>
+     
+//     )
+//   }
+// }
+
+
+
+
+//import React from 'react'
+// import Another from './MakeText'
+
+// function App(){
+
+// return (
+//   <div className="body">
+
+//   <Another />
+//   <Another name="amir"/>
+//   <Another name="amir2"/>
+//   <Another name="amir3"/>
+//   <Another name="amir4"/>
+//   <Another name="amir5"/>
+//   <Another name="amir6"/>
+//   <Another name="amir7"/>
 
 
 
 
 
-  </div>
-)
 
-}
+
+//   </div>
+// )
+
+// }
 
 
 
@@ -49,9 +97,9 @@ function App(){
   
 }*/
 
-export default App
+// export default App
 
-/*import React, { Component } from "react";
+import React, { Component } from "react";
 import logo from "./assets/my.jpg";
 import "./App.css";
 class App extends Component {
@@ -102,7 +150,7 @@ class App extends Component {
   }
 }
 
-const 
+
 
 export default App;
-*/
+

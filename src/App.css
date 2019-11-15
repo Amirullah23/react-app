@@ -1,4 +1,4 @@
-/* .App {
+.App {
   text-align: center;
 
 }
@@ -33,9 +33,9 @@
 #bio p{
   text-align: justify;
 }
- */
 
- .body {
+
+ /* .body {
    min-height: 100vh;
    display: flex;
    justify-content: space-between;
@@ -53,4 +53,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
